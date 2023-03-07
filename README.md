@@ -35,6 +35,32 @@ based reconstruction results. The code and dataset are available https://github.
 |:--:| 
 | ***Figure 1. Overall framework**. The proposed pipeline of sim-to-real transfer learning for vision-based soft robot. We generated simulation-based point cloud and corresponding internal camera views to train our neural network model. Then, we show that the trained model transfers zero-shot to the real world by testing with real-world images..* |
 
+# Usage
+## Training
+scripts/train_example.sh
+```
+python src/train.py \
+--note 'Pattern_1' \
+--device 0 \
+--epoch 100 \
+--batch_size 50 \
+--lr_init 1e-4 \
+--weight_decay 1e-6 \
+--train_dataset <training_dataset.npz> \
+--valid_dataset <validation_dataset.npz> \
+
+```
+
+## Inferencing
+scripts/inference_example.sh
+```
+python src/inference.py \
+--dataset <validation_dataset.npz> \
+--checkpoint <model_checkpoint.pth> \
+--filename <output_filename.gif>
+
+```
+
 
 # Dataset 
 Download link (upcoming ...)
