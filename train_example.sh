@@ -1,0 +1,9 @@
+python train.py \
+--note 'Pattern_1' \
+--device 0 \
+--epoch 100 \
+--batch_size 50 \
+--lr_init 1e-4 \
+--weight_decay 1e-6 \
+--train_dataset ./data/SIM2REAL_13scene_finger_Pattern1_Training.npz \
+--valid_dataset ./data/SIM2REAL_13scene_finger_Pattern1_Validation.npz \
