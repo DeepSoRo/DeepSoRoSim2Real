@@ -58,7 +58,7 @@ def eval(device, model, dataset, frames):
     
 if __name__ == '__main__':
     
-    os.chdir(sys.path[0])
+    # os.chdir(sys.path[0])
     
     print(f"\n########## System Check ##########")
     print(f"Torch Version: {torch.__version__}")
@@ -152,6 +152,6 @@ if __name__ == '__main__':
         ax_mix.set_xlim(-value, value); ax_mix.set_ylim(-value, value); ax_mix.set_zlim(-value, value)
         
     ani = animation.FuncAnimation(fig, animate, frames=frames)
-    ani.save(f'./results/{output_name}.gif', fps=int(frames/40))
+    ani.save(f'results/{output_name}.gif', fps=int(frames/40))
 
     

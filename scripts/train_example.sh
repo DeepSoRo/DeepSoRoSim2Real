@@ -1,4 +1,4 @@
-python train.py \
+python src/train.py \
 --note 'Pattern_1' \
 --device 0 \
 --epoch 100 \

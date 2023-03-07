@@ -63,21 +63,18 @@ def train(note, device, model, dataset_train, dataset_test, batch_size, lr_init,
             valid_loss += loss.item()
             t2.set_postfix(val_step_loss=loss.item())
 
-        # update learning rate
-        # scheduler.step(valid_loss)
-
          ##### ENDING OF THE EPOCH #####
         t1.set_postfix(train_epoch_loss=train_loss/len(dataloader_train), valid_epoch_loss=valid_loss/len(dataloader_test))
         writer.add_scalars('Loss/combine', {'train': train_loss / len(dataloader_train),
                                            'valid': valid_loss / len(dataloader_test)}, ep + 1)
         
-        # save model every 5 epoch
-        if (ep+1) % 50 == 0:
-            torch.save(model.state_dict(), f'../model/{note}_{ep+1}.pth')    
+        # save model every N epoch
+        if (ep+1) % 20 == 0:
+            torch.save(model.state_dict(), f'checkpoint/{note}_{ep+1}.pth')    
 
 if __name__ == "__main__":
     
-    os.chdir(sys.path[0])
+    # os.chdir(sys.path[0])
     
     # input arguments parser
     parser = argparse.ArgumentParser(description="Training Parameters ...")

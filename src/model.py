@@ -48,12 +48,8 @@ class DeepSoRoNet_VGG(nn.Module):
         # x - sequence of images - Dim: BxNx1xHxW (Batch x Seq_Length x Single_Channel x Height x Width
         """ VGG """
         x = self.conv_layers(x)
-        # print(f'VGG Output Dim: {x.size()}')
-        # print(x)
 
         h = x.register_hook(self.activations_hook)
-
-        # exit()
 
         x = torch.nn.functional.max_pool2d(x, kernel_size=2, stride=2)
         x = torch.nn.functional.avg_pool2d(x, kernel_size=7).squeeze()
@@ -78,7 +74,7 @@ class DeepSoRoNet_VGG(nn.Module):
         return self.conv_layers(x)
 
     def prototype(self):
-        prototype = np.load('./prototype_finger.npz')
+        prototype = np.load('src/prototype_finger.npz')
         prototype = torch.FloatTensor(prototype['prototype'])
 
         return prototype.cuda(self.device)
