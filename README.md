@@ -63,8 +63,19 @@ python src/inference.py \
 
 
 # Dataset 
-Download link (upcoming ...)
 
+
+The full dataset presented in this paper is available for download in the following link [13.4 GB .zip]: https://cmu.box.com/s/ehilym4yhr6dm2zit6koslqpm87084bp
+```sh
+<dataset_path>
+./ex[1-35] #experiment names
+./ex[1-35]/rawimg_dense # .png proprioceptive raw images for Pattern 2
+./ex[1-35]/rawimg_vert # .png proprioceptive raw images for Pattern 4
+./ex[1-35]/bin_dense # .png proprioceptive binary images for Pattern 2
+./ex[1-35]/bin_vert # .png proprioceptive binary images for Pattern 4
+./ex[1-35]/outermesh_dense # .obj watertight surface mesh of the robot shape reset to the position of the camera for Pattern 2
+./ex[1-35]/outermesh_vert # .obj watertight surface mesh of the robot shape reset to the position of the camera for Pattern 4
+```
 # Bibtex
 If this work is helpful for your research, please cite the following BibTeX entry.
 
